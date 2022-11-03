@@ -1,6 +1,7 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 // import * as basicLightbox from "basiclightbox";
+console.log(galleryItems);
 
 const instance = basicLightbox.create(`
     <div class="modal">
@@ -13,4 +14,4 @@ const instance = basicLightbox.create(`
 
 instance.show();
 
-console.log(galleryItems);
+
