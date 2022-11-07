@@ -30,8 +30,9 @@ $gallery.addEventListener("click", (event) => {
       `<img src = ${event.target.dataset.source}>`
     );
     instance.show();
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
+    $gallery.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && instance.visible()) {
+        console.log("licznik");
         instance.close();
       }
     });
