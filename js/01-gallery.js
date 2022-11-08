@@ -3,6 +3,7 @@ import { galleryItems } from "./gallery-items.js";
 console.log(galleryItems);
 
 const $gallery = document.querySelector("div.gallery");
+let instance;
 
 galleryItems.forEach((element) => {
   const $galleryItem = document.createElement("div");
@@ -25,17 +26,15 @@ galleryItems.forEach((element) => {
 
 $gallery.addEventListener("click", (event) => {
   event.preventDefault();
-  console.log("test");
   if (event.target.tagName === "IMG") {
-    const instance = basicLightbox.create(
+    instance = basicLightbox.create(
       `<img src = ${event.target.dataset.source}>`
     );
     instance.show();
-    $gallery.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && instance.visible()) {
-        console.log("licznik");
-        instance.close();
-      }
-    });
+  }
+});
+$gallery.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && instance.visible()) {
+    instance.close();
   }
 });
