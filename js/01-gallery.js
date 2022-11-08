@@ -25,6 +25,7 @@ galleryItems.forEach((element) => {
 
 $gallery.addEventListener("click", (event) => {
   event.preventDefault();
+  console.log("test");
   if (event.target.tagName === "IMG") {
     const instance = basicLightbox.create(
       `<img src = ${event.target.dataset.source}>`
